@@ -23,6 +23,7 @@ namespace ProiectFinal.Controllers
         [HttpPost]
         public ActionResult Verify(User user)
         {
+            //Redirectare
             var res = VerifyLogin(user);
             if(res.Result)
             {
@@ -37,6 +38,7 @@ namespace ProiectFinal.Controllers
         }
         public async Task<bool> VerifyLogin(User user)
         {
+            //verificare bd
                 using (UserDbContex udb = new UserDbContex())
                 {
                     var res = udb.Users.SingleOrDefault(u => u.Password == user.Password && u.Username == user.Username);
