@@ -23,6 +23,7 @@ namespace ProiectFinal.Controllers
         [HttpPost]
         public ActionResult Verify(User user)
         {
+            //Redirectare
             var res = VerifyLogin(user);
             if(res.Result)
             {
