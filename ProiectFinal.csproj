@@ -182,6 +182,7 @@
     <Content Include="Views\_LayoutPage1.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Users\SignUp.cshtml" />
+    <Content Include="Views\Home\Cos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
