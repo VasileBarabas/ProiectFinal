@@ -7,12 +7,16 @@ using ProiectFinal.Models;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
+using System.Diagnostics;
+using System.IO;
+
 namespace ProiectFinal.Controllers
 {
     public class UsersController : Controller
     {
-        public string ErrorMessage;
         
+        public string ErrorMessage;
+
         // GET: Users
         public ActionResult Index()
         {
@@ -28,12 +32,15 @@ namespace ProiectFinal.Controllers
         {
             //Redirectare
             var res = VerifyLogin(user);
-            if(res.Result)
+            DateTime now = DateTime.Now;
+            if (res.Result)
             {
+                Trace.WriteLine(user.Username + " s-a logat: "+ now.ToString("F"));
                 return RedirectToAction("Index", "Home");
             }
             else
             {
+                Trace.WriteLine("Eroare logare: " + now.ToString("F"));
                 ViewBag.Message = "Contul introdus nu exista, reincercati";
                 return View("Login");
             }
