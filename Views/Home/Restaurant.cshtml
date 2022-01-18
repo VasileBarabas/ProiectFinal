@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProiectFinal.Models.RestaurantMenu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Menu -->
+<div id="menu" >
+    <h1 >THE MENU</h1>
+    <div >
+        <a href="#pizza">Pizza</a>
+        <a href="#pasta">Pasta</a>
+        <a href="#starters">Starters</a>
+    </div>
+
+    <div id="pizza">
+        <h1><b>Margherita</b> <span>$12.50</span></h1>
+        <a href="/Home/Restaurant">
+        <button style="height:25px; width:50px"> </button>
+         </a>
+    </div>
+    <p>Fresh tomatoes, fresh mozzarella, fresh basil</p>
+    <hr>
+
+    <h1><b>Formaggio</b> <span>$15.50</span></h1>
+    <p>Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)</p>
+    <hr>
+
+    <h1>
+        <b>Meat Town</b> <span>Hot!</span>
+        <span>$20.00</span>
+    </h1>
+    <p>Fresh tomatoes, mozzarella, hot pepporoni, hot sausage, beef, chicken</p>
+</div>
+
+        <h1 id="pasta">PASTA</h1>
+        <div>
+
+            <h1>
+                <b>Lasagna</b> <span>Popular</span>
+                <span class>$13.50</span>
+            </h1>
+            <p class>Special sauce, mozzarella, parmesan, ground beef</p>
+            <hr>
+
+            <h1><b>Ravioli</b> <span>$14.50</span></h1>
+            <p>Ravioli filled with cheese</p>
+            <hr>
+
+            <h1><b>Spaghetti Classica</b> <span>$11.00</span></h1>
+            <p>Fresh tomatoes, onions, ground beef</p>
+        </div>
+
+        <h1 id="starters">STARTERS</h1>
+        <div>
+
+            <h1>
+                <b>Today's Soup</b> <span>Seasonal</span>
+                <span>$5.50</span>
+            </h1>
+            <p>Ask the waiter</p>
+            <hr>
+
+            <h1><b>Bruschetta</b> <span>$8.50</span></h1>
+            <p>Bread with pesto, tomatoes, onion, garlic</p>
+            <hr>
+
+            <h1><b>Garlic bread</b> <span>$9.50</span></h1>
+            <p>Grilled ciabatta, garlic butter, onions</p>
+        </div>
+    </div>
+
