@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ProiectFinal.Models;
+
 namespace ProiectFinal.Controllers
 {
     public class HomeController : Controller
     {
-        private CosDbContext dbContext = new CosDbContext();
-
         public ActionResult Index()
         {
-            
             return View();
         }
 
@@ -31,8 +28,7 @@ namespace ProiectFinal.Controllers
         }
         public ActionResult Cos()
         {
-            
-            return View(dbContext.Cumparaturi.ToList());
+            return View();
         }
     }
 }
