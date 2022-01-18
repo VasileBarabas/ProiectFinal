@@ -30,5 +30,10 @@ namespace ProiectFinal.Controllers
         {
             return View();
         }
+
+        public ActionResult Restaurant()
+        {
+            return View();
+        }
     }
 }
