@@ -8,13 +8,13 @@ using System.ComponentModel.DataAnnotations;
 namespace ProiectFinal.Models
 {
     public class Cos
-    { 
+    {
         [Key]
         public int Id { get; set; }
         public string denumire { get; set; }
         public float pret { get; set; }
 
-  
+
     }
     public class CosDbContext : DbContext
     {

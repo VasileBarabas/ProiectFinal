@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProiectFinal.Models.RestaurantMenu>
+<!-- Menu -->
+<div id="menu">
+
+
+
+    <h1>THE MENU</h1>
+    <div>
+        <a href="#pizza">Pizza</a>
+        <a href="#pasta">Pasta</a>
+        <a href="#starters">Starters</a>
+    </div>
+
+    <h1 id="pizza"></h1>
+    <h1><b>PIZZA</b></h1>
+    @foreach (var item in Model)
+    {
+
+        if (item.descriereProdus == "pizza")
+        {
+            <h1><b>@item.denumireProdus</b> <span>@item.pret RON</span></h1>
+            using (Html.BeginForm("Adauga", "RestaurantMenu", new { numeProdus = item.denumireProdus }))
+            {
+                <input type="submit" name=@item.denumireProdus value="+" class="btn btn-default" />
+            }
+        }
+
+    }
+
+    <h1 id="pasta"><b>PASTE</b></h1>
+    @foreach (var item in Model)
+    {
+        if (item.descriereProdus == "pasta")
+        {
+
+            <h1><b>@item.denumireProdus</b> <span>@item.pret RON</span></h1>
+        using (Html.BeginForm("Adauga", "RestaurantMenu", new { numeProdus = item.denumireProdus }))
+        {
+            <input type="submit" name=@item.denumireProdus value="+" class="btn btn-default" />
+        }
+    }
+    }
+
+    <h1 id="starters"><b>STARTERS</b></h1>
+
+    @foreach (var item in Model)
+    {
+        if (item.descriereProdus == "aperitiv")
+        {<h1><b>@item.denumireProdus</b> <span>@item.pret RON</span></h1>
+    using (Html.BeginForm("Adauga", "RestaurantMenu", new { numeProdus = item.denumireProdus }))
+    {
+        <input type="submit" name=@item.denumireProdus value="+" class="btn btn-default" />
+    }
+            }
+
+
+    }
+
+
+
+
+
+
+</div>

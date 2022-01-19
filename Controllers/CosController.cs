@@ -18,10 +18,10 @@ namespace ProiectFinal.Controllers
         [HttpGet]
         public ActionResult Cos()
         {
-            
-                return View(dbContext.Cumparaturi.ToList());
-            
-                
+
+            return View(dbContext.Cumparaturi.ToList());
+
+
         }
 
 
