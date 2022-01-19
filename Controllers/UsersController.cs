@@ -37,7 +37,18 @@ namespace ProiectFinal.Controllers
             if (res.Result)
             {
                 Trace.WriteLine(user.Username + " s-a logat: "+ now.ToString("F"));
+                using (CosDbContext dbContext = new CosDbContext())
+                {
+                    var cumparaturi = from m in dbContext.Cumparaturi
+                                      select m;
+                    foreach(var cumparatura in cumparaturi)
+                    {
+                        dbContext.Cumparaturi.Remove(cumparatura);
+                    }
+                    dbContext.SaveChanges();
+                }
                 return RedirectToAction("Index", "Home");
+
             }
             else
             {

@@ -189,6 +189,8 @@
     <Content Include="Views\Home\Cos.cshtml" />
     <Content Include="Views\Home\Restaurant.cshtml" />
     <Content Include="Views\RestaurantMenu\Confirmare.cshtml" />
+    <Content Include="Views\Cos\Confirmare.cshtml" />
+    <Content Include="Views\Cos\Confirmare2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
