@@ -38,5 +38,12 @@ namespace ProiectFinal.Controllers
         {
             return View(mdbContext.Menus.ToList());
         }
+
+        public ActionResult ChangeLanguage(string lang)
+        {
+            Session["lang"] = lang;
+
+            return RedirectToAction("Index", "Home", new { language = lang });
+        }
     }
 }

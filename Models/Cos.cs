@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using Language;
 
 namespace ProiectFinal.Models
 {
@@ -11,7 +12,11 @@ namespace ProiectFinal.Models
     {
         [Key]
         public int Id { get; set; }
+
+        //[Display(Name = "Denumire", ResourceType = typeof(Resource)]
         public string denumire { get; set; }
+
+       // [Display(Name = "Pret", ResourceType = typeof(Resource1))]
         public float pret { get; set; }
 
 
