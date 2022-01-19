@@ -188,6 +188,7 @@
     <Content Include="Views\Users\SignUp.cshtml" />
     <Content Include="Views\Home\Cos.cshtml" />
     <Content Include="Views\Home\Restaurant.cshtml" />
+    <Content Include="Views\RestaurantMenu\Confirmare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -205,6 +206,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Language\Language.csproj">
+      <Project>{faa59e45-806f-41fc-916f-04fadab7b1b5}</Project>
+      <Name>Language</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

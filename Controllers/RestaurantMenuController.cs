@@ -41,7 +41,7 @@ namespace ProiectFinal.Controllers
 
                 
             }
-            return View("Restaurant");
+            return View("Confirmare");
         }
     }
 
