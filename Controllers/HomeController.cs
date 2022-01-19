@@ -8,7 +8,8 @@ namespace ProiectFinal.Controllers
 {
     public class HomeController : Controller
     {
-        private CosDbContext dbContext = new CosDbContext();
+        private CosDbContext cdbContext = new CosDbContext();
+        private MenuDbContex mdbContext = new MenuDbContex();
         public ActionResult Index()
         {
             return View();
@@ -30,12 +31,12 @@ namespace ProiectFinal.Controllers
         public ActionResult Cos()
         {
 
-            return View(dbContext.Cumparaturi.ToList());
+            return View(cdbContext.Cumparaturi.ToList());
         }
 
         public ActionResult Restaurant()
         {
-            return View();
+            return View(mdbContext.Menus.ToList());
         }
     }
 }
