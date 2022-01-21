@@ -27,6 +27,7 @@ namespace ProiectFinal.Controllers
         {
             return View();
         }
+        //Checking if the users exists
         [HttpPost]
         public ActionResult Verify(User user)
         {
@@ -36,7 +37,18 @@ namespace ProiectFinal.Controllers
             if (res.Result)
             {
                 Trace.WriteLine(user.Username + " s-a logat: "+ now.ToString("F"));
+                using (CosDbContext dbContext = new CosDbContext())
+                {
+                    var cumparaturi = from m in dbContext.Cumparaturi
+                                      select m;
+                    foreach(var cumparatura in cumparaturi)
+                    {
+                        dbContext.Cumparaturi.Remove(cumparatura);
+                    }
+                    dbContext.SaveChanges();
+                }
                 return RedirectToAction("Index", "Home");
+
             }
             else
             {
@@ -46,12 +58,14 @@ namespace ProiectFinal.Controllers
             }
          
         }
+        //Async method to check if the users is in the db
         public async Task<bool> VerifyLogin(User user)
         {
             //verificare bd
                 using (UserDbContex udb = new UserDbContex())
                 {
                 StringBuilder hashedPass = new StringBuilder();
+                //hashing the password so we can search it in the db
                 using (SHA256 hash = SHA256.Create())
                 {
                     byte[] bytes = hash.ComputeHash(Encoding.UTF8.GetBytes(user.Password));
@@ -94,7 +108,7 @@ namespace ProiectFinal.Controllers
             }
             return View("SignUp");
         }
-      
+      //Async method to add the user to the database
         public async Task InsertToDb(User user)
         {
  
@@ -104,6 +118,7 @@ namespace ProiectFinal.Controllers
                     {
 
                         var res = udb.Users.SingleOrDefault(u => u.Password == user.Password && u.Username == user.Username);
+                        //Checking if the user does already exists or not( user+password)
                     if (res != null)
                     {
                         ErrorMessage = "Contul exista deja, reincercati";
@@ -113,6 +128,7 @@ namespace ProiectFinal.Controllers
                     {
 
                         StringBuilder hashedPass = new StringBuilder();
+                         //hashing the password so we can insert it in the db
                         using (SHA256 hash = SHA256.Create())
                         {
                             byte[] bytes = hash.ComputeHash(Encoding.UTF8.GetBytes(user.Password));

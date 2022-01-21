@@ -1,40 +1,54 @@
 ﻿@model IEnumerable<ProiectFinal.Models.Cos>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cosul meu";
 }
 
-<h2>Index</h2>
+<h2 font face="Comic Sans MS"><b>Cosul meu</b></h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.denumire)
+            Denumire
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pret)
+            Pret
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.denumire)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pret)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pret)
+            </td>
+            <td>
+                @using (Html.BeginForm("Delete", "Cos", new { numeProdus = item.denumire }))
+                {
+                    <input type="submit" name=@item.denumire value="-" class="btn btn-default" />
+                }
+            </td>
+        </tr>
     }
 
 </table>
+
+
+    <h4>Pret:  @Model.Sum(i => i.pret)</h4>
+    <div>
+        <form>
+            <label>Adresa:</label>
+            <input type="text"><br><br>
+
+        </form>
+        @using (Html.BeginForm("Comanda", "Cos", new { numeProdus = "xd" }))
+        {
+            <input type="submit" name="xd" value="Comanda" class="btn btn-default" />
+        }
+    </div>
